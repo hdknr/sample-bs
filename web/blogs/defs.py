@@ -14,3 +14,15 @@ class Post(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Review(models.Model):
+    nickname = models.CharField(
+        _('Nickname'), default=_('Default Nickname'), max_length=50)
+    rating = models.PositiveIntegerField(
+        _('Review Rating'), default=3,
+        choices=tuple((j, j) for i, j in enumerate(range(1, 6))))
+    text = models.TextField(_('Review Text'))
+
+    class Meta:
+        abstract = True

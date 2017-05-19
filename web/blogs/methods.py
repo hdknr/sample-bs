@@ -5,3 +5,7 @@ from corekit.methods import CoreModel
 
 class Post(CoreModel):
     pass
+
+
+class Review(CoreModel):
+    pass

@@ -1,4 +1,5 @@
 {% extends 'base/post.html' %}
+{% load i18n bootstrap3 blogstags %}
 
 {% block title %}
 {{ instance.title }}
@@ -17,4 +18,26 @@ by <a href="#">{{ instance.writer }}</a> on {{ instance.created_at }}
 
 {% block content %}
 {{ instance.content|safe }}
+
+{% if request.user.is_authenticated %}
+{% review_form request.user instance as form %}
+<section>
+  <h2>{% trans 'Review' %}</h2>
+
+  <form class="form form-inline">
+    <div class="row">
+      {% bootstrap_field form.nickname layout='inline' %}
+      {% bootstrap_field form.rating layout='inline' %}
+      {% buttons submit='Review' %}
+      {% endbuttons %}
+    </div>
+    <div class="row">
+      {% bootstrap_field form.text layout='inline' %}
+    </div>
+  </form>
+</section>
+
+
+{% endif %}
+
 {% endblock %}
