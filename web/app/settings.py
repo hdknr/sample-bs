@@ -125,6 +125,10 @@ TIME_ZONE = 'Asia/Tokyo'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'media')
+INSTALLED_APPS += [
+    'theme',
+]
+
 # Assets Settings
 try:
     from .assets import *        # NOQA
