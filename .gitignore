@@ -1,0 +1,25 @@
+*.log
+*.pyc
+*.swp
+*.retry
+*~
+.*~
+.DS_Store
+.ropeproject
+.svn
+.coverage
+*.sqlite3
+#
+backup.*.html
+test.*.yml
+celerybeat-schedule.*
+migrations
+# 
+web/covers
+web/static
+web/media
+web/components
+web/app/local_settings.py
+# Docs
+IPAexfont00301
+build
