@@ -1,0 +1,2 @@
+-e git+https://github.com/hdknr/django-corekit.git#egg=corekit
+-e git+https://github.com/hdknr/django-pagination.git#egg=pagination

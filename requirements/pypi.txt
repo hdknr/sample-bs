@@ -1,0 +1,38 @@
+# Framework
+django
+pytz
+django-filter
+django-click
+gunicorn
+pyyaml
+
+# template
+django-dbtemplates
+
+# UI
+bambu-bootstrap
+django-bootstrap3
+django-bower
+
+# testing
+django-nose
+coverage
+factory_boy
+
+# development
+django-extensions
+
+# Graphics
+Pillow
+pygraphviz
+
+# Docs
+sphinx
+sphinx_rtd_theme
+sphinxcontrib-blockdiag
+
+# Mails
+beautifulsoup4
+
+# Tagging
+django-taggit

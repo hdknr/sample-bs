@@ -1,0 +1,9 @@
+# $ xargs -a <(awk '/^\s*[^#]/' requirements/debian.txt) -r -- sudo apt-get install 
+#
+pkg-config
+graphviz
+graphviz-dev 
+libgraphviz-dev 
+unzip
+libfreetype6
+libfreetype6-dev
