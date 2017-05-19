@@ -1,0 +1,20 @@
+{% extends 'base/post.html' %}
+
+{% block title %}
+{{ instance.title }}
+{% endblock %}
+
+{% block content_title %}
+{{ instance.title }}
+{% endblock %}
+
+{% block content_subtitle %}
+{% endblock %}
+
+{% block content_meta %}
+by <a href="#">{{ instance.writer }}</a> on {{ instance.created_at }}
+{% endblock %}
+
+{% block content %}
+{{ instance.content|safe }}
+{% endblock %}

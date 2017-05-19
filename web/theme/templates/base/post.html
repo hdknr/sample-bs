@@ -15,7 +15,7 @@
     <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="{% static 'base/css/clean-blog.min.css %}" rel="stylesheet">
+    <link href="{% static 'base/css/clean-blog.min.css' %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -42,7 +42,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.html">{% trans 'Brand' %}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,25 +69,34 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+    {% block content_header %}
+    <header class="intro-header" style="background-image: url('{% static 'base/img/post-bg.jpg' %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
+                        <h1>{% block content_title %}Man must explore, and this is exploration at its greatest{% endblock %}</h1>
+                        <h2 class="subheading">
+                          {% block content_subtitle %}Problems look mighty small from 150 miles up{% endblock %}
+                        </h2>
+                        <span class="meta">
+                          {% block content_meta %}
+                            Posted by <a href="#">Start Bootstrap</a> on August 24, 2014
+                          {% endblock %}
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    {% endblock %}
 
     <!-- Post Content -->
     <article>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  {% block content %}
                     <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
                     <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
@@ -122,6 +131,7 @@
                     <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
 
                     <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+                    {% endblock %}
                 </div>
             </div>
         </div>
@@ -167,7 +177,7 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
