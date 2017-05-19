@@ -1,0 +1,3 @@
+[submodule "web/theme/static/startbootstrap-clean-blog"]
+	path = web/theme/static/startbootstrap-clean-blog
+	url = https://github.com/BlackrockDigital/startbootstrap-clean-blog.git
