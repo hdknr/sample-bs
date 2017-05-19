@@ -16,6 +16,18 @@
 by <a href="#">{{ instance.writer }}</a> on {{ instance.created_at }}
 {% endblock %}
 
+{% block bottom %}
+<script>
+$(function(){
+    $("input:radio[name=rating]")
+      .after('{% trans "Star" %}')
+      .closest('label').contents().filter(function(){
+        return (this.nodeType == 3);
+      }).remove();
+})
+</script>
+{% endblock %}
+
 {% block content %}
 {{ instance.content|safe }}
 
