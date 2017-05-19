@@ -1,5 +1,5 @@
 {% extends 'base/post.html' %}
-{% load i18n bootstrap3 blogstags %}
+{% load i18n static bootstrap3 blogstags %}
 
 {% block title %}
 {{ instance.title }}
@@ -16,21 +16,45 @@
 by <a href="#">{{ instance.writer }}</a> on {{ instance.created_at }}
 {% endblock %}
 
+{% block head %}
+  {{ block.super }}
+  <style>
+  </style>
+{% endblock %}
+
 {% block bottom %}
 <script>
 $(function(){
+
+    $.fn.extend({
+      change_star: function(value, on, off){
+        var color = ($(this).val() <= value )? on: off;
+        $(this).siblings().css({color: color});
+        return this;
+      }});
+
     $("input:radio[name=rating]")
-      .after('{% trans "Star" %}')
-      .closest('label').contents().filter(function(){
-        return (this.nodeType == 3);
-      }).remove();
+      .map(function(index, e){
+        $(this)
+          .css('display', 'none')
+          .after('{% trans "Star" %}')
+          .change_star(3, 'red', 'black')
+          .closest('label').contents().filter(function(){
+              return (this.nodeType == 3);
+          }).remove();
+        });
+    $("input:radio[name=rating]").change(function(){
+        v =$(this).val();
+        $("input[name=rating]").map(function(i, e){
+            $(e).change_star(v, 'red', 'black');
+        });
+    });
 })
 </script>
 {% endblock %}
 
 {% block content %}
 {{ instance.content|safe }}
-
 {% if request.user.is_authenticated %}
 {% review_form request.user instance as form %}
 <section>

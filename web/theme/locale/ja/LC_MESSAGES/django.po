@@ -24,7 +24,7 @@ msgstr ""
 
 #: templates/blogs/post/detail.html:22
 msgid "Star"
-msgstr "<i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>"
+msgstr "<i class=\"fa fa-star\" aria-hidden=\"true\"></i>"
 
 #: templates/blogs/post/detail.html:34
 msgid "Review"
