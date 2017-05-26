@@ -1,0 +1,53 @@
+{% extends 'base/post.html' %}
+{% load i18n static bootstrap3 blogstags %}
+
+{% block title %}
+{{ instance.title }}
+{% endblock %}
+
+{% block content_title %}
+{{ instance.title }}
+{% endblock %}
+
+{% block content_subtitle %}
+{% endblock %}
+
+{% block content_meta %}
+{% endblock %}
+
+{% block head %} {{ block.super }}
+<link href="{% static 'lightslider/dist/css/lightslider.css' %}" rel="stylesheet">
+<style>
+</style>
+{% endblock %}
+
+{% block bottom %} {{block.super}}
+<script src="{% static 'lightslider/dist/js/lightslider.js' %}"></script>
+<script>
+$(function(){
+  $("#lightSlider").lightSlider({
+   gallery:true,
+   item:1,
+   vertical:true,
+   verticalHeight:295,
+   vThumbWidth:50,
+   thumbItem:8,
+   thumbMargin:4,
+   slideMargin:0
+ });
+
+})
+</script>
+{% endblock %}
+
+{% block content %}
+
+<ul id="lightSlider">
+{% for instance in instances %}
+ <li data-thumb="{{ instance.data.url }}">
+  <h3><a href="{{ instance.admin_change_url }}">{{ instance.filename }}</a></h3>
+  <img src="{{ instance.data.url }}" width="150px">
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

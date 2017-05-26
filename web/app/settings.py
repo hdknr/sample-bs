@@ -129,6 +129,7 @@ INSTALLED_APPS += [
     'theme',
     'django.contrib.sites',
     'blogs',
+    'gallery',
 ]
 SITE_ID = 1
 # Assets Settings

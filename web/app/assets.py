@@ -22,4 +22,5 @@ BOWER_INSTALLED_APPS = [
     'jquery-ui',
     'bootstrap',
     'fontawesome',
+    'lightslider',      # https://github.com/sachinchoolur/lightslider.git
 ]
